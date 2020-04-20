@@ -19,7 +19,7 @@ def save_events(event):
         if httpMethod == "POST":
             body = json.loads(event['body'])
             with conn.cursor() as cursor:
-                sql = "INSERT INTO `book` (`id`, `condition`, `money`, `user_id`, `book_id`,) VALUES (%s, %s, %s, %s, %s)"
+                sql = "INSERT INTO `request` (`id`, `condition`, `money`, `user_id`, `book_id`,) VALUES (%s, %s, %s, %s, %s)"
                 cursor.execute(sql, (body['id'], body['condition'], body['money'], body['user_id'], body['book_id']))
                 conn.commit()
                 return {
